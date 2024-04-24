@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="FlowGraphsLab.db.views::dimension" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="dimension"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="FlowGraphsLab.db::mycds.employees">
+    <resourceUri>FlowGraphsLab.db::mycds.employees</resourceUri>
+  </DataSource>
+  <DataSource id="FlowGraphsLab.db::mycds.more_employees">
+    <resourceUri>FlowGraphsLab.db::mycds.more_employees</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="CN_N" joinType="leftOuter">
+    <viewAttributes>
+      <viewAttribute id="EMP_ID"/>
+      <viewAttribute id="FNAME"/>
+      <viewAttribute id="LNAME"/>
+      <viewAttribute id="FNAME_1"/>
+      <viewAttribute id="LNAME_1"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="FlowGraphsLab.db::mycds.employees">
+      <mapping xsi:type="Calculation:AttributeMapping" target="EMP_ID" source="EMP_ID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FNAME" source="FNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LNAME" source="LNAME"/>
+    </input>
+    <input node="FlowGraphsLab.db::mycds.more_employees">
+      <mapping xsi:type="Calculation:AttributeMapping" target="FNAME_1" source="FNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LNAME_1" source="LNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="EMP_ID" source="EMP_ID"/>
+    </input>
+    <joinAttribute name="EMP_ID"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Join_1">
+  <attributes>
+    <attribute id="EMP_ID" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="EMP_ID"/>
+      <keyMapping columnObjectName="Join_1" columnName="EMP_ID"/>
+    </attribute>
+    <attribute id="FNAME" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FNAME"/>
+      <keyMapping columnObjectName="Join_1" columnName="FNAME"/>
+    </attribute>
+    <attribute id="LNAME" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LNAME"/>
+      <keyMapping columnObjectName="Join_1" columnName="LNAME"/>
+    </attribute>
+    <attribute id="FNAME_1" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FNAME_1"/>
+      <keyMapping columnObjectName="Join_1" columnName="FNAME_1"/>
+    </attribute>
+    <attribute id="LNAME_1" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LNAME_1"/>
+      <keyMapping columnObjectName="Join_1" columnName="LNAME_1"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="248"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="FlowGraphsLab.db::mycds.employees" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="94" y="98"/>
+      <rectangleSize width="284.048828125"/>
+    </shape>
+    <shape modelObjectName="FlowGraphsLab.db::mycds.more_employees" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="500" y="98"/>
+      <rectangleSize width="320.06640625"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

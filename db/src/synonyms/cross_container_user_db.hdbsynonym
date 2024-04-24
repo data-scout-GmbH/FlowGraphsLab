@@ -1,0 +1,9 @@
+{
+  "FlowGraphsLab.db.synonyms::Users": {
+    "target": {
+      "object": "UserData.User",
+      "schema": "OPENSAP_HANA_USER_00_1",
+      "database": "DS1"
+    }
+  }
+}
